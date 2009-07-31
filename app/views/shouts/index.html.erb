@@ -1,0 +1,31 @@
+<%= error_messages_for :shout, :header_message => nil, :message => nil %>  
+<%= '<p class="success">' + flash[:notice] + '</p>' if flash[:notice] %> 
+
+<ul>
+  <% for shout in @shouts
+    gravatar = 'http://www.gravatar.com/avatar.php?gravatar_id=' + Digest::MD5.hexdigest(h(shout.email.downcase)) + '&size=70' %>
+    <li>
+      <div class="meta">
+        <img src="<%= gravatar %>" alt="Gravatar" />
+        <p><%= shout.name %></p>
+      </div>
+      <div class="shout">
+        <p><%= shout.message %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<% form_for :shout, :url => { :action => 'create' } do |f| %>  
+  <h2>Shout!</h2>  
+  <div class="fname">  
+    <label for="name"><p>Name:</p></label>  
+    <%= f.text_field :name, :size => 20 %>  
+  </div>  
+  <div class="femail">  
+    <label for="email"><p>Email:</p></label>  
+    <%= f.text_field :email, :size => 20 %>  
+  </div>  
+  <%= f.text_area :message, :rows => 5, :cols => 40 %>  
+  <p><%= submit_tag 'Submit' %></p>  
+<% end %>  

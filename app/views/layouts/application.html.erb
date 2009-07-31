@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>Shoutbox in Ruby on Rails</title>  
+<%= stylesheet_link_tag 'style', :media => 'screen' %>  
+</head>  
+  <body>  
+    <div id="container">  
+      <h1>Shoutbox</h1>  
+      <h5>  
+        <a href="http://www.danharper.me" title="Web Developer">Dan Harper </a> :  
+        <a href="http://net.tutsplus.com" title="Nettuts - Spoonfed Coding Skills">Nettuts</a>  
+      </h5>  
+      <div id="boxtop"></div>  
+      <div id="content">  
+        <%= yield %>  
+      </div><!--/content-->  
+      <div id="boxbot"></div>  
+    </div><!--/container-->  
+  </body>  
+</html>  
